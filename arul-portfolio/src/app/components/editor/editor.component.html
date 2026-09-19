@@ -1,39 +1,65 @@
 <div class="editor">
-    <div class="tab-bar" #tabBar>
-
-    <div class="editor-tab" *ngFor="let file of files"
-        [class.active]="selectedFile === file.name"
-        [attr.data-file]="file.name"
-        (click)="selectFile(file.name)">
-        <span class="file-icon" [class]="file.type">
-            {{ getFileIcon(file.type) }}
-        </span>
-
-        <span class="file-name">
-            {{ file.name }}
-        </span>
-    </div>
-
-    </div>
-    <div class="editor-content">
-
+  <div class="tab-bar" #tabBar>
     <div
+      class="editor-tab"
+      *ngFor="let file of files"
+      [class.active]="selectedFile === file.name"
+      [attr.data-file]="file.name"
+      (click)="selectFile(file.name)">
+      <span class="file-icon" [class]="file.type">
+        {{ getFileIcon(file.type) }}
+      </span>
+
+      <span class="file-name">
+        {{ file.name }}
+      </span>
+    </div>
+  </div>
+  <div class="editor-body">
+    <div class="editor-content">
+      <div
         class="line"
         *ngFor="let line of currentFile?.content; let i = index"
-    >
-
+      >
         <span class="line-number">
-        {{ i + 1 }}
+          {{ i + 1 }}
         </span>
 
-    <span class="code"
-    [class.heading]="currentFile?.type === 'markdown' && isHeading(line)">
-        <ng-container *ngFor="let token of tokenizeLine(line)">
+        <span
+          class="code"
+          [class.heading]="currentFile?.type === 'markdown' && isHeading(line)"
+        >
+          <ng-container *ngFor="let token of tokenizeLine(line)">
             <span [class]="'token-' + token.type">{{ token.text }}</span>
-        </ng-container>
-    </span>
-
+          </ng-container>
+        </span>
+      </div>
     </div>
+    <div class="markdown-preview" *ngIf="currentFile?.type === 'markdown'">
+      <ng-container *ngFor="let line of currentFile?.content">
+        <h1 *ngIf="line.startsWith('# ')">
+          {{ line.substring(2) }}
+        </h1>
 
+        <h2 *ngIf="line.startsWith('## ')">
+          {{ line.substring(3) }}
+        </h2>
+
+        <ul *ngIf="line.startsWith('- ')">
+          <li>{{ line.substring(2) }}</li>
+        </ul>
+
+        <p
+          *ngIf="
+            line &&
+            !line.startsWith('# ') &&
+            !line.startsWith('## ') &&
+            !line.startsWith('- ')
+          "
+        >
+          {{ line }}
+        </p>
+      </ng-container>
     </div>
+  </div>
 </div>

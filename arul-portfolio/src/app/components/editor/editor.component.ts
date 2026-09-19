@@ -96,4 +96,8 @@ export class EditorComponent implements OnChanges {
       });
     }
   }
+
+  isBulletLine(line: string): boolean {
+    return line.trim().startsWith('- ');
+  }
 }
