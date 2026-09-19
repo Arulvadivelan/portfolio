@@ -1,0 +1,39 @@
+<div class="editor">
+    <div class="tab-bar" #tabBar>
+
+    <div class="editor-tab" *ngFor="let file of files"
+        [class.active]="selectedFile === file.name"
+        [attr.data-file]="file.name"
+        (click)="selectFile(file.name)">
+        <span class="file-icon" [class]="file.type">
+            {{ getFileIcon(file.type) }}
+        </span>
+
+        <span class="file-name">
+            {{ file.name }}
+        </span>
+    </div>
+
+    </div>
+    <div class="editor-content">
+
+    <div
+        class="line"
+        *ngFor="let line of currentFile?.content; let i = index"
+    >
+
+        <span class="line-number">
+        {{ i + 1 }}
+        </span>
+
+    <span class="code"
+    [class.heading]="currentFile?.type === 'markdown' && isHeading(line)">
+        <ng-container *ngFor="let token of tokenizeLine(line)">
+            <span [class]="'token-' + token.type">{{ token.text }}</span>
+        </ng-container>
+    </span>
+
+    </div>
+
+    </div>
+</div>

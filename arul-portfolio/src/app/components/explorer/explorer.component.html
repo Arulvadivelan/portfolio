@@ -1,0 +1,27 @@
+<div class="explorer">
+
+  <div class="explorer-title">
+    EXPLORER
+  </div>
+
+  <div class="project-folder">
+
+    <div class="folder-name">
+      ▾ {{ selectedSection | uppercase }}
+    </div>
+
+    <div class="file-list">
+
+      <div class="file-item" *ngFor="let file of files"
+        (click)="selectFile(file.name)">
+        <span class="file-icon" [class]="file.type">
+            {{ getFileIcon(file.type) }}
+        </span>
+        {{ file.name }}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
