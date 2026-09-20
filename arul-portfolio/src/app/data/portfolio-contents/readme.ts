@@ -1,5 +1,5 @@
 export const readmeContent = [
-  '# Hi, I\'m [Your Name] 👋',
+  '# Hi, I\'m Arulvadivelan 👋',
   '',
   'I\'m a Software Engineer focused on building scalable applications and integrating AI capabilities into modern web applications.',
   '',
@@ -41,7 +41,7 @@ export const readmeContent = [
   '',
   '## Connect',
   '',
-  '- GitHub: [Your GitHub]',
-  '- LinkedIn: [Your LinkedIn]',
-  '- Email: [Your Email]'
+  '- GitHub: [Arulvadivelan](https://github.com/Arulvadivelan)',
+  '- LinkedIn: [Arulvadivelan](https://www.linkedin.com/in/arulvadivelan-v-577955225)',
+  '- Email: arulvadivelan007@gmail.com'
 ];

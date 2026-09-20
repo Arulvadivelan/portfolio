@@ -2,9 +2,9 @@ import { Experience } from "../../models/experience-model";
 
 export const experiences: Experience[] = [
   {
-    company: '[Company Name]',
+    company: 'Ford Motor Private Limited',
     role: 'Software Engineer',
-    period: '[Start Year] - Present',
+    period: '2023 - Present',
 
     responsibilities: [
       'Design and develop scalable web applications using Java and Spring Boot.',

@@ -1,6 +1,6 @@
 export const aboutContent = [
   'const about = {',
-  '  name: "[Your Name]",',
+  '  name: "Arulvadivelan",',
   '  role: "Software Engineer",',
   '',
   '  summary:',
