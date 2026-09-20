@@ -314,9 +314,13 @@
     flex: 0 0 50%;
     min-height: 0;
     box-sizing: border-box;
+
     overflow-y: auto;
+    overflow-x: hidden;
 
     border-left: none;
     border-top: 1px solid #2d2d2d;
+
+    padding: 30px 20px 60px;
   }
 }
