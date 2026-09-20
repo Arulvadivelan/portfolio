@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
   workflow_dispatch:
 
 permissions:
@@ -25,17 +25,20 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: ./arul-portfolio/package-lock.json
 
       - name: Install dependencies
         run: npm ci
+        working-directory: ./arul-portfolio
 
       - name: Build Angular application
         run: npx ng build --base-href /portfolio/
+        working-directory: ./arul-portfolio
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/arul-portfolio/browser
+          path: ./arul-portfolio/dist/arul-portfolio/browser
 
   deploy:
     needs: build
