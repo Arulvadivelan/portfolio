@@ -4,6 +4,48 @@
     EXPLORER
   </div>
 
+  <div class="mobile-sections">
+    <div class="sections-title">
+      SECTIONS
+    </div>
+
+    <div
+      class="section-item"
+      [class.active]="selectedSection === 'about'"
+      (click)="selectSection('about')"
+    >
+      <span>●</span>
+      About
+    </div>
+
+    <div
+      class="section-item"
+      [class.active]="selectedSection === 'projects'"
+      (click)="selectSection('projects')"
+    >
+      <span>●</span>
+      Projects
+    </div>
+
+    <div
+      class="section-item"
+      [class.active]="selectedSection === 'skills'"
+      (click)="selectSection('skills')"
+    >
+      <span>●</span>
+      Skills
+    </div>
+
+    <div
+      class="section-item"
+      [class.active]="selectedSection === 'contact'"
+      (click)="selectSection('contact')"
+    >
+      <span>●</span>
+      Contact
+    </div>
+  </div>
+
   <div class="project-folder">
 
     <div class="folder-name">

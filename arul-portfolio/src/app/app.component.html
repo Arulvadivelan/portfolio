@@ -1,3 +1,17 @@
+<div class="mobile-header">
+  <button class="menu-button" (click)="toggleExplorer()">
+    ☰
+  </button>
+
+  <div class="mobile-title">
+    PORTFOLIO
+  </div>
+
+  <button class="more-button">
+    ⋮
+  </button>
+</div>
+
 <div class="portfolio">
   <app-activity-bar
     [selectedSection]="selectedSection"
@@ -6,11 +20,17 @@
 
   <app-explorer
     [selectedSection]="selectedSection"
-    (fileSelected)="selectedFile = $event">
+    [class.mobile-open]="isExplorerOpen"
+    (sectionSelected)="selectSection($event)"
+    (fileSelected)="selectedFile = $event; closeExplorer()">
   </app-explorer>
 
   <app-editor
     [selectedFile]="selectedFile"
     (fileSelected)="selectedFile = $event">
   </app-editor>   
+</div>
+
+<div class="mobile-overlay" *ngIf="isExplorerOpen"
+  (click)="closeExplorer()">
 </div>

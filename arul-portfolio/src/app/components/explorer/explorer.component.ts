@@ -17,6 +17,8 @@ export class ExplorerComponent {
 
   @Output() fileSelected = new EventEmitter<string>();
 
+  @Output() sectionSelected = new EventEmitter<ActivitySection>();
+
   selectFile(fileName: string) {
     this.fileSelected.emit(fileName);
   }
@@ -41,5 +43,9 @@ export class ExplorerComponent {
       default:
         return '•';
     }
+  }
+
+  selectSection(section: ActivitySection) {
+    this.sectionSelected.emit(section);
   }
 }

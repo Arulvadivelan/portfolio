@@ -58,3 +58,51 @@
 .file-icon.json {
   color: #cbcb41;
 }
+
+.mobile-sections {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sections {
+    display: block;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2d2d2d;
+  }
+
+  .sections-title {
+    padding: 10px 15px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #858585;
+    letter-spacing: 0.5px;
+  }
+
+  .section-item {
+    padding: 7px 15px;
+    color: #cccccc;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .section-item span {
+    display: inline-block;
+    width: 18px;
+    color: #666666;
+    font-size: 8px;
+  }
+
+  .section-item:hover {
+    background: #2a2d2e;
+    color: #ffffff;
+  }
+
+  .section-item.active {
+    background: #252526;
+    color: #ffffff;
+  }
+
+  .section-item.active span {
+    color: #007acc;
+  }
+}
