@@ -1,7 +1,8 @@
 <div class="portfolio">
-  <app-activity-bar 
-   (sectionSelected)="selectSection($event)">
-   </app-activity-bar>
+  <app-activity-bar
+    [selectedSection]="selectedSection"
+    (sectionSelected)="selectSection($event)">
+  </app-activity-bar>
 
   <app-explorer
     [selectedSection]="selectedSection"

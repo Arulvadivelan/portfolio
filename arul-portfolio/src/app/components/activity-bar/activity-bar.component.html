@@ -1,17 +1,17 @@
 <div class="activity-bar">
-    <button class="activity-item active"  (click)="selectSection('about')">
+    <button class="activity-item"  [class.active]="selectedSection === 'about'" (click)="selectSection('about')">
         👤
     </button>
 
-    <button class="activity-item" (click)="selectSection('projects')">
+    <button class="activity-item" [class.active]="selectedSection === 'projects'"  (click)="selectSection('projects')">
      📁
     </button>
 
-    <button class="activity-item" (click)="selectSection('skills')">
+    <button class="activity-item" [class.active]="selectedSection === 'skills'"  (click)="selectSection('skills')">
         🛠
     </button>
 
-    <button class="activity-item"  (click)="selectSection('contact')">
+    <button class="activity-item" [class.active]="selectedSection === 'contact'"  (click)="selectSection('contact')">
         ✉
     </button>
 </div>

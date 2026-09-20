@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {Input, Component, EventEmitter, Output } from '@angular/core';
 
 export type ActivitySection =
   | 'about'
@@ -13,6 +13,8 @@ export type ActivitySection =
   styleUrl: './activity-bar.component.css'
 })
 export class ActivityBarComponent {
+
+  @Input() selectedSection: ActivitySection = 'about';
   
   @Output() sectionSelected = new EventEmitter<ActivitySection>();
 

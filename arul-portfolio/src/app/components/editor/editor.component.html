@@ -5,7 +5,8 @@
       *ngFor="let file of files"
       [class.active]="selectedFile === file.name"
       [attr.data-file]="file.name"
-      (click)="selectFile(file.name)">
+      (click)="selectFile(file.name)"
+    >
       <span class="file-icon" [class]="file.type">
         {{ getFileIcon(file.type) }}
       </span>
@@ -15,7 +16,7 @@
       </span>
     </div>
   </div>
-  <div class="editor-body">
+  <div class="editor-body" [class.markdown-mode]="currentFile?.type === 'markdown'">
     <div class="editor-content">
       <div
         class="line"
@@ -36,7 +37,7 @@
       </div>
     </div>
     <div class="markdown-preview" *ngIf="currentFile?.type === 'markdown'">
-      <ng-container *ngFor="let line of currentFile?.content">
+      <ng-container *ngFor="let line of currentFile?.content; let i = index">
         <h1 *ngIf="line.startsWith('# ')">
           {{ line.substring(2) }}
         </h1>
@@ -45,8 +46,10 @@
           {{ line.substring(3) }}
         </h2>
 
-        <ul *ngIf="line.startsWith('- ')">
-          <li>{{ line.substring(2) }}</li>
+        <ul *ngIf="line.startsWith('- ') && (i === 0 || !currentFile?.content?.[i - 1]?.startsWith('- '))">
+            <li *ngFor="let item of getMarkdownList(i)"
+                [innerHTML]="renderMarkdown(item)">
+            </li>
         </ul>
 
         <p
@@ -56,9 +59,8 @@
             !line.startsWith('## ') &&
             !line.startsWith('- ')
           "
-        >
-          {{ line }}
-        </p>
+          [innerHTML]="renderMarkdown(line)"
+        ></p>
       </ng-container>
     </div>
   </div>

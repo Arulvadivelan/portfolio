@@ -128,21 +128,20 @@
 }
 
 .line-number {
+  flex: 0 0 50px;
   width: 50px;
-
+  box-sizing: border-box;
   text-align: right;
-
   padding-right: 20px;
-
   color: #858585;
-
   user-select: none;
 }
 
 .code {
+  flex: 1;
+  min-width: max-content;
   white-space: pre;
 }
-
 .code.heading .token-normal{
   color: #569cd6;
   font-weight: 600;
@@ -221,6 +220,12 @@
 }
 
 .editor-body .editor-content {
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+}
+
+.editor-body.markdown-mode .editor-content {
   width: 50%;
   flex: none;
 }
@@ -261,4 +266,26 @@
 .markdown-preview li {
   margin: 5px 0;
   line-height: 1.6;
+}
+
+.markdown-preview strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.markdown-preview code {
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: #2d2d2d;
+  color: #ce9178;
+  font-family: Consolas, 'Courier New', monospace;
+}
+
+.markdown-preview a {
+  color: #4fc1ff;
+  text-decoration: none;
+}
+
+.markdown-preview a:hover {
+  text-decoration: underline;
 }

@@ -4,6 +4,7 @@ import { PortfolioFile } from '../../models/portfolio-file';
 import { portfolioFiles } from '../../data/portfolio-files';
 import { tokenizeTypeScript } from '../../utils/typescript-syntax';
 import { tokenizeJson } from '../../utils/json-syntax';
+import { renderMarkdownInline } from '../../utils/markdown-renderer';
 
 
 @Component({
@@ -97,7 +98,24 @@ export class EditorComponent implements OnChanges {
     }
   }
 
-  isBulletLine(line: string): boolean {
-    return line.trim().startsWith('- ');
+  renderMarkdown(text: string): string {
+    return renderMarkdownInline(text);
+  }
+
+  getMarkdownList(startIndex: number): string[] {
+  const content = this.currentFile?.content ?? [];
+  const items: string[] = [];
+
+  for (let i = startIndex; i < content.length; i++) {
+    const line = content[i];
+
+    if (!line.startsWith('- ')) {
+      break;
+    }
+
+    items.push(line.substring(2));
+  }
+
+    return items;
   }
 }

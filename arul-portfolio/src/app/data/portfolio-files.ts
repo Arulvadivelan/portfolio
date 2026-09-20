@@ -1,121 +1,67 @@
-import { PortfolioFile } from "../models/portfolio-file";
+import { PortfolioFile } from '../models/portfolio-file';
+import { aboutContent } from './portfolio-contents/about';
+import { certificationsContent } from './portfolio-contents/certification';
+import { contactContent } from './portfolio-contents/contact';
+import { educationContent } from './portfolio-contents/education';
+import { experienceContent } from './portfolio-contents/experience';
+import { projectsContent } from './portfolio-contents/project';
+import { readmeContent } from './portfolio-contents/readme';
+import { skillsContent } from './portfolio-contents/skills';
 
 export const portfolioFiles: PortfolioFile[] = [
-    {
-        name: 'README.md',
-        type: 'markdown',
-        section: 'about',
-        content: [
-            '# Hi, I\'m Arul 👋',
-            '',
-            'I\'m a [Software Developer / ML Engineer].',
-            '',
-            'I enjoy building applications, solving problems,',
-            'and exploring machine learning and modern web technologies.',
-            '',
-            '## About Me',
-            '',
-            '- 🎓 Education: [Your degree]',
-            '- 💼 Experience: [Your experience]',
-            '- 📍 Location: [Your location]',
-            '- 🌐 Portfolio: [Your website]',
-            '',
-            '## What I Work With',
-            '',
-            '- Programming: [Python, TypeScript, ...]',
-            '- Web: [Angular, ...]',
-            '- Machine Learning: [scikit-learn, PyTorch, ...]',
-            '- Tools: [Git, GitHub, ...]',
-            '',
-            '## Featured Projects',
-            '',
-            'Explore the projects section to see what I have built.',
-            '',
-            '## Connect',
-            '',
-            '- GitHub: [Your GitHub]',
-            '- LinkedIn: [Your LinkedIn]',
-            '- Email: [Your Email]'
-        ]
-    },
+  {
+    name: 'README.md',
+    type: 'markdown',
+    section: 'about',
+    content: readmeContent
+  },
 
   {
     name: 'about.ts',
     type: 'typescript',
     section: 'about',
-    content: [
-      'const about = {',
-      '  name: "Arul",',
-      '  role: "Software Developer",',
-      '};'
-    ]
-  },
-
-  {
-    name: 'skills.json',
-    type: 'json',
-    section: 'skills',
-    content: [
-      '{',
-      '  "languages": ["Python", "TypeScript"],',
-      '  "frameworks": ["Angular"],',
-      '}'
-    ]
-  },
-
-  {
-    name: 'projects.ts',
-    type: 'typescript',
-    section: 'projects',
-    content: [
-      'const projects = [',
-      '  // Projects will be added here',
-      '];'
-    ]
-  },
-
-  {
-    name: 'experience.ts',
-    type: 'typescript',
-    section: 'projects',
-    content: [
-      'const experience = [',
-      '  // Experience will be added here',
-      '];'
-    ]
+    content: aboutContent
   },
 
   {
     name: 'education.md',
     type: 'markdown',
     section: 'about',
-    content: [
-      '# Education',
-      '',
-      'Education details will be added here.'
-    ]
+    content: educationContent
+  },
+
+  {
+    name: 'projects.ts',
+    type: 'typescript',
+    section: 'projects',
+    content: projectsContent
+  },
+
+  {
+    name: 'experience.ts',
+    type: 'typescript',
+    section: 'projects',
+    content: experienceContent
+  },
+
+  {
+    name: 'skills.json',
+    type: 'json',
+    section: 'skills',
+    content: skillsContent
   },
 
   {
     name: 'certifications.md',
     type: 'markdown',
     section: 'skills',
-    content: [
-      '# Certifications',
-      '',
-      'Certifications will be added here.'
-    ]
+    content: certificationsContent
   },
 
   {
     name: 'contact.ts',
     type: 'typescript',
     section: 'contact',
-    content: [
-      'const contact = {',
-      '  email: "your-email@example.com",',
-      '};'
-    ]
+    content: contactContent
   }
-
 ];
